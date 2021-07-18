@@ -25,8 +25,8 @@ private:
     sf::RenderWindow window;
     sf::Event event;
     std::string _Title = "Puissance4";
-    short _Height = 720;
-    short _Width = 1280;
+    short _Height = 1100;
+    short _Width = 1285 + 222; /** grid 1285 + turn player 222 */
 
 };
 
