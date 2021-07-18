@@ -1,0 +1,47 @@
+//
+// Created by ruby on 2021-07-18.
+//
+
+#include "Window.hpp"
+#include <SFML/Graphics.hpp>
+
+Window::Window()
+{
+    sf::ContextSettings addons;
+    addons.antialiasingLevel = 16.0;
+    addons.depthBits = 32;
+    this->window.create(sf::VideoMode(this->_Width, this->_Height), this->_Title, sf::Style::Default, addons);
+    this->window.setFramerateLimit(60);
+    sf::Image iconPng;
+    this->window.setKeyRepeatEnabled(true);
+    iconPng.loadFromFile("./ressources/Icon/Icon.png");
+    this->window.setIcon(iconPng.getSize().x, iconPng.getSize().y, iconPng.getPixelsPtr());
+}
+
+Window::~Window()
+{
+}
+
+void Window::WindowClose()
+{
+    this->window.close();
+}
+
+void Window::WindowCatchEvent(std::vector<short> &QueueEvent)
+{
+    while (this->window.pollEvent(this->event)) {
+        if (this->event.type == sf::Event::Closed)
+            QueueEvent.push_back(CLOSE);
+    }
+}
+
+void Window::WindowDisplayScene()
+{
+    this->window.clear();
+    this->window.display();
+}
+
+bool Window::WindowIsOpen()
+{
+    return this->window.isOpen();
+}
