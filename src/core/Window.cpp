@@ -10,7 +10,7 @@ Window::Window()
     sf::ContextSettings addons;
     addons.antialiasingLevel = 16.0;
     addons.depthBits = 32;
-    this->window.create(sf::VideoMode(this->_Width, this->_Height), this->_Title, sf::Style::Default, addons);
+    this->window.create(sf::VideoMode(this->_Width, this->_Height), this->_Title, sf::Style::Close, addons);
     this->window.setFramerateLimit(60);
     sf::Image iconPng;
     this->window.setKeyRepeatEnabled(true);
