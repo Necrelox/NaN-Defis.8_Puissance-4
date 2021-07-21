@@ -9,13 +9,14 @@ NAME	=	Puissance4
 CC	=	@g++
 SRC	=	$(wildcard src/*.cpp) 		\
 		$(wildcard src/core/*.cpp) 	\
-		$(wildcard src/core/Events/*.cpp) 	\
+		$(wildcard src/tools/*.cpp) 	\
+		$(wildcard src/Scene/*.cpp) 	\
+		$(wildcard src/Events/*.cpp) 	\
 		$(wildcard src/render/*.cpp)
 
 INCLUDE	=	-I./include \
-			-I./include/class \
-			-I./include/class/core \
-			-I./include/class/render
+			-I./include/tools \
+			-I./include/class
 
 OBJ	=	${SRC:.cpp=.o}
 

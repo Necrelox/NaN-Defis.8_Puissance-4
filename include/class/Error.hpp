@@ -1,5 +1,5 @@
 //
-// Created by ruby on 2021-07-18.
+// Created by Necrelox on 2021-07-18.
 //
 
 #ifndef DEFIS_8NAN_PUISSANCE4_ERROR_H

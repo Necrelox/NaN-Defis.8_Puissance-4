@@ -1,47 +1,29 @@
 //
-// Created by ruby on 2021-07-18.
+// Created by Necrelox on 2021-07-18.
 //
 
 #include "Window.hpp"
 #include <SFML/Graphics.hpp>
 
-Window::Window()
+short Window::getDepthMaxOfVector(std::vector<Entity *> &a)
 {
-    sf::ContextSettings addons;
-    addons.antialiasingLevel = 16.0;
-    addons.depthBits = 32;
-    this->window.create(sf::VideoMode(this->_Width, this->_Height), this->_Title, sf::Style::Default, addons);
-    this->window.setFramerateLimit(60);
-    sf::Image iconPng;
-    this->window.setKeyRepeatEnabled(true);
-    iconPng.loadFromFile("./ressources/Icon/Icon.png");
-    this->window.setIcon(iconPng.getSize().x, iconPng.getSize().y, iconPng.getPixelsPtr());
+    short DepthMax = 0;
+    for (size_t i = 0; i < a.size(); ++i)
+        DepthMax = a[i]->depth > DepthMax ? a[i]->depth :DepthMax;
+    return DepthMax;
 }
 
-Window::~Window()
+void Window::WindowDisplayScene(Scene &scene)
 {
-}
+    this->window.clear(sf::Color(0, 42, 224, 255));
+    for (short i = 0, DepthMax = this->getDepthMaxOfVector(scene.layer); i <= DepthMax ; ++i)
+        for (size_t j = 0; j < scene.layer.size(); ++j)
+            if (scene.layer[j]->draw == 1 && scene.layer[j]->depth == i)
+                this->window.draw(scene.layer[j]->entity);
 
-void Window::WindowClose()
-{
-    this->window.close();
-}
-
-void Window::WindowCatchEvent(std::vector<short> &QueueEvent)
-{
-    while (this->window.pollEvent(this->event)) {
-        if (this->event.type == sf::Event::Closed)
-            QueueEvent.push_back(CLOSE);
-    }
-}
-
-void Window::WindowDisplayScene()
-{
-    this->window.clear();
+    for (short i = 0, DepthMax = this->getDepthMaxOfVector(scene.button); i <= DepthMax ; ++i)
+        for (size_t j = 0; j < scene.button.size(); ++j)
+            if (scene.button[j]->draw == 1 && scene.button[j]->depth == i)
+                this->window.draw(scene.button[j]->entity);
     this->window.display();
-}
-
-bool Window::WindowIsOpen()
-{
-    return this->window.isOpen();
 }

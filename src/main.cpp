@@ -1,5 +1,5 @@
 //
-// Created by ruby on 2021-07-18.
+// Created by Necrelox on 2021-07-18.
 //
 
 #include "Error.hpp"
