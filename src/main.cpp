@@ -1,15 +1,18 @@
-//
-// Created by Necrelox on 2021-07-18.
-//
+/*
+** EPITECH PROJECT, 2021
+** main
+** File description:
+** main
+*/
 
 #include "Error.hpp"
-#include "Puissance4.hpp"
+#include "Core.hpp"
 #include <iostream>
 
 int main(void)
 {
     try {
-        Puissance4 core;
+        Core core;
     }
     catch (Error &e)
     {

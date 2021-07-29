@@ -7,16 +7,17 @@
 
 NAME	=	Puissance4
 CC	=	@g++
-SRC	=	$(wildcard src/*.cpp) 		\
-		$(wildcard src/core/*.cpp) 	\
-		$(wildcard src/tools/*.cpp) 	\
-		$(wildcard src/Scene/*.cpp) 	\
-		$(wildcard src/Events/*.cpp) 	\
-		$(wildcard src/render/*.cpp)
+SRC	=	$(wildcard src/*.cpp) 					\
+		$(wildcard src/core/*.cpp)				\
+		$(wildcard src/event/*.cpp)				\
+		$(wildcard src/render/*.cpp)			\
+		$(wildcard src/scene/puissance4/*.cpp)	\
+		$(wildcard src/tools/*.cpp)
 
-INCLUDE	=	-I./include \
-			-I./include/tools \
-			-I./include/class
+INCLUDE	=	-I./include 				\
+			-I./include/interface	 	\
+			-I./include/class 			\
+			-I./include/tools
 
 OBJ	=	${SRC:.cpp=.o}
 

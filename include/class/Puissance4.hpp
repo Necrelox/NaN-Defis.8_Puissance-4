@@ -1,29 +1,35 @@
-//
-// Created by Necrelox on 2021-07-18.
-//
+/*
+** EPITECH PROJECT, 2021
+** Puissance4
+** File description:
+** Puissance4
+*/
 
-#ifndef PUISSANCE4_PUISSANCE4_H
-#define PUISSANCE4_PUISSANCE4_H
+#ifndef NAN_DEFIS_8_PUISSANCE_4_PUISSANCE4_HPP
+#define NAN_DEFIS_8_PUISSANCE_4_PUISSANCE4_HPP
 
-#include "Window.hpp"
-#include "ech_twister.h"
+#include "IScene.hpp"
+#include "Entity.hpp"
 
-class Puissance4 {
-    enum eventId {CLOSE, LEFTCLIC};
-    std::vector<short> QueueEvent;
-    Window window;
-    Scene scene;
-    unsigned turn:1;
+class Puissance4 : public IScene
+{
 public:
-    explicit Puissance4();
+    Puissance4();
     ~Puissance4();
-
+    void EventManager(short EvenID, sf::RenderWindow &window) override;
+    void draw(sf::RenderWindow &window) override;
 private:
-    void InitializeScene();
-    void CheckColumnAndAddPion();
+    enum EventID {CLICMS1 = 1};
+    void HoverLayer(sf::RenderWindow &window);
+    void EventClic(sf::RenderWindow &window);
+    bool CreatePion(short column);
     void PhysicPion();
-    void EventManager();
+    void DisplayTurn();
+    unsigned Turn:1;
+    std::vector <Entity *> layer;
+    std::vector <Entity *> button;
+    std::vector <Entity *> pion;
+    std::vector <Entity *> particles;
 };
 
-
-#endif //PUISSANCE4_PUISSANCE4_H
+#endif //NAN_DEFIS_8_PUISSANCE_4_PUISSANCE4_HPP

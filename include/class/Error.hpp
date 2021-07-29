@@ -1,9 +1,12 @@
-//
-// Created by Necrelox on 2021-07-18.
-//
+/*
+** EPITECH PROJECT, 2021
+** Error
+** File description:
+** Error
+*/
 
-#ifndef DEFIS_8NAN_PUISSANCE4_ERROR_H
-#define DEFIS_8NAN_PUISSANCE4_ERROR_H
+#ifndef NAN_DEFIS_8_PUISSANCE_4_ERROR_HPP
+#define NAN_DEFIS_8_PUISSANCE_4_ERROR_HPP
 
 #include <stdexcept>
 
@@ -18,4 +21,4 @@ public:
     const char *what() const noexcept {return _msg.c_str();};
 };
 
-#endif //DEFIS_8NAN_PUISSANCE4_ERROR_H
+#endif //NAN_DEFIS_8_PUISSANCE_4_ERROR_HPP
